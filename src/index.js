@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import HeadComponent from "./component/HeadComponent";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const showOne = true;
@@ -46,6 +47,7 @@ const testFunction =()=> {
   return(
     <div>
         <Atemplate/>
+        <HeadComponent/>
        { testSd() }
         <h1 style = {{ fontSize: '20px', color: 'red' }}> 我好 </h1>
         <h1 style = { styleArgument }> Hello world!</h1>
