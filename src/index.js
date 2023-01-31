@@ -5,7 +5,6 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-
 const showOne = true;
 const styleArgument = { fontSize: '100px', color: 'red' };
 
@@ -24,7 +23,7 @@ const getValue=(value)=>{
   console.log(value)
 }
 
-//建立元件
+//建立元件 for迴圈
 const multiButton=()=>{
   var output=[];
   for(let i=0;i<4;++i)
@@ -42,6 +41,7 @@ const testSd  =()=> {
     </div>
   );
 }
+//建立元件 包元件
 const testFunction =()=> {
   return(
     <div>
@@ -55,6 +55,7 @@ const testFunction =()=> {
   );
 }
 
+//主要框架
 root.render(
   testFunction(),
   <React.StrictMode>
