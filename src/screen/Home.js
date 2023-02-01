@@ -5,15 +5,15 @@ function Content()
 {
   return(
     <div>
-      我是Header
+      我是Home
     </div>
   )
 }
 
-const HeadComponent = props => {
+const Home = props => {
     return (
         <Content/>
     );
 };
 
-export default HeadComponent;
+export default Home;

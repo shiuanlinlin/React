@@ -4,17 +4,37 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import HeadComponent from "./component/HeadComponent";
+import NavComponent from "./component/NavComponent";
+// import {HashRouter,Route,Switch,Link} from "react-router-dom";
+//頁面
+//import FormPage from "./screen/Home";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const showOne = true;
 const styleArgument = { fontSize: '100px', color: 'red' };
 
+//路由
+// const reactApp = () =>{
+//   return(
+//       <HashRouter>
+//         <Switch><Route exact={true} path="/" component={FormPage}/></Switch>
+//       </HashRouter>
+//   );
+// }
+
+//按鈕效果 props改變的方法，是在下方新增一行
+const printMessage=()=>{
+  document.getElementById('show-area').innerHTML="王美美變成王小華";
+  document.getElementById('oldname').style.display = "none";
+}
+
 //模組化
-function Atemplate()
+// 在函式參數中加入props
+function Atemplate(props)
 {
   return(
     <div>
-      component
+      <button id="oldname" onClick={props.handleClick}>{props.name}</button>
     </div>
   )
 }
@@ -46,8 +66,10 @@ const testSd  =()=> {
 const testFunction =()=> {
   return(
     <div>
-        <Atemplate/>
+        <NavComponent>在index.js中設定文字</NavComponent>
+        <Atemplate name="王美美" handleClick={printMessage}/>
         <HeadComponent/>
+        <div id="show-area"></div>
        { testSd() }
         <h1 style = {{ fontSize: '20px', color: 'red' }}> 我好 </h1>
         <h1 style = { styleArgument }> Hello world!</h1>
@@ -61,7 +83,7 @@ const testFunction =()=> {
 root.render(
   testFunction(),
   <React.StrictMode>
-    <App />
+    <App> 在index.js中設定文字 </App>
   </React.StrictMode>
 );
 
