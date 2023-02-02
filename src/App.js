@@ -2,7 +2,7 @@ import './App.css';
 
 function App(props) {
   return (
-    <button> {props.children} </button>
+    <div> {props.children} </div>
   );
 }
 

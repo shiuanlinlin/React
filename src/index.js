@@ -5,7 +5,13 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import HeadComponent from "./component/HeadComponent";
 import NavComponent from "./component/NavComponent";
-// import {HashRouter,Route,Switch,Link} from "react-router-dom";
+import {
+  BrowserRouter,
+  Routes,
+  Route
+} from "react-router-dom";
+import SecondPage from "./screen/SecondPage";
+import HomePage from "./screen/HomePage";
 //頁面
 //import FormPage from "./screen/Home";
 
@@ -48,7 +54,7 @@ const getValue=(value)=>{
 const multiButton=()=>{
   var output=[];
   for(let i=0;i<4;++i)
-      output.push(<button>我是第{i}個按鍵</button>)
+      output.push(<button key={i}>我是第{i}個按鍵</button>)
   return output;
 }
 
@@ -62,10 +68,19 @@ const testSd  =()=> {
     </div>
   );
 }
+
+
 //建立元件 包元件
 const testFunction =()=> {
   return(
     <div>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<HomePage />}/>
+            123
+            <Route path="second" element={<SecondPage />}/>
+          </Routes>
+        </BrowserRouter>
         <NavComponent>在index.js中設定文字</NavComponent>
         <Atemplate name="王美美" handleClick={printMessage}/>
         <HeadComponent/>
@@ -81,9 +96,8 @@ const testFunction =()=> {
 
 //主要框架
 root.render(
-  testFunction(),
   <React.StrictMode>
-    <App> 在index.js中設定文字 </App>
+    <App> {testFunction()} </App>
   </React.StrictMode>
 );
 
